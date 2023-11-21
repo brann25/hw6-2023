@@ -8,8 +8,13 @@ window.addEventListener("load", function() {
 let clip = document.querySelector("#player1");
 
 document.querySelector("#play").addEventListener("click", function() {
+	let vol = document.getElementById("volume");
+	let slider = document.querySelector("#slider");
 	console.log("Play Video");
 	clip.play();
+	clip.autoplay = false;
+	clip.loop = false;
+	vol.innerHTML = slider.value + "%";
 });
 
 document.querySelector("#pause").addEventListener("click", function() {
@@ -19,17 +24,17 @@ document.querySelector("#pause").addEventListener("click", function() {
 
 document.querySelector("#slower").addEventListener("click", function() {
 	console.log("Slow down Video, rate =", clip.playbackRate);
-	clip.playbackRate -= 0.15;
+	clip.playbackRate -= 0.10;
 });
 
 document.querySelector("#faster").addEventListener("click", function() {
 	console.log("Speed up Video, rate =", clip.playbackRate);
-	clip.playbackRate += 1.35;
+	clip.playbackRate += 0.10;
 });
 
 document.querySelector("#skip").addEventListener("click", function() {
 	console.log("Curent Time:", clip.currentTime);
-	clip.currentTime += 0.5;
+	clip.currentTime += 10;
 });
 
 document.querySelector("#mute").addEventListener("click", function() {
