@@ -34,7 +34,13 @@ document.querySelector("#faster").addEventListener("click", function() {
 
 document.querySelector("#skip").addEventListener("click", function() {
 	console.log("Curent Time:", clip.currentTime);
-	clip.currentTime += 10;
+	console.log("Total Video Length:",clip.duration)
+	if (clip.currentTime < clip.duration){
+		clip.currentTime += 10;
+	}else{
+		clip.play();
+		clip.currentTime = 0;
+	}; 
 });
 
 document.querySelector("#mute").addEventListener("click", function() {
